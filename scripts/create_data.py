@@ -5,6 +5,7 @@ from matplotlib import pyplot as plt
 import os
 import tensorflow
 import keras
+from deskew import deskew 
 
 def create_data():
 	path= '../extracted_images/'
@@ -24,6 +25,7 @@ def create_data():
 			if(idx==400):
 				break
 			img=cv2.imread(os.path.join(file_path,j),0)
+			img= deskew(img)
 			label[count]=label_idx
 			input_data[count]=img
 			print(input_data.shape,img.shape)

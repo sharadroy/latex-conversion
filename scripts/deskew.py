@@ -54,12 +54,4 @@ def deskew(img):
 # print(len(contour),gray_display.shape)
 # plt.imshow(gray_display)
 # plt.show()
-img=cv2.imread('g.jpg',0)
-img=cv2.resize(img,(300,300))
-ret,img=cv2.threshold(img,127,255,cv2.THRESH_BINARY_INV)
-img_new=deskew(img)
-#plt.subplot(2,1,1)
-#plt.imshow(img,cmap='gray')
-#plt.subplot(2,1,2)
-plt.imshow(img_new,cmap='gray')
-plt.show()
+#  
