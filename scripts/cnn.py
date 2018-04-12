@@ -8,10 +8,10 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.layers import Convolution2D, MaxPooling2D
 from sklearn.model_selection import train_test_split
-input_data= np.load('../inputs.npy')
+input_data= np.load('..\\inputs_4000.npy')
 input_data = input_data.reshape(input_data.shape[0],45,45,1)
 print(input_data.shape)
-labels= np.load('../label.npy')
+labels= np.load('..\\label_4000.npy')
 labels=keras.utils.to_categorical(labels,40)
 X_train, X_test, y_train, y_test = train_test_split( input_data, labels, test_size=0.2, shuffle= True, random_state=42)
 
@@ -30,7 +30,7 @@ def cnn_model():
 	model.add(Dense(128, activation='relu'))
 	model.add(Dense(50, activation='relu'))
 	model.add(Dense(num_classes, activation='softmax'))
-	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy',''])
 
 	return model
 

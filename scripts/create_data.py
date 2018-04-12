@@ -8,11 +8,11 @@ import keras
 from deskew import deskew 
 
 def create_data():
-	path= '../extracted_images/'
+	path= '..\\extracted_images\\'
 	files=os.listdir(path)
 	print(files)
 	cnt=0
-	length=16000
+	length=160000
 	label=np.zeros((length,))
 	input_data=np.zeros((length,45,45))
 	data_values=['-', '1','2','+','X', '(',')','=','3','A','N','y','sqrt','4','0','b','z','d','l','sin','5','C','9','6','8','7',
@@ -22,7 +22,7 @@ def create_data():
 		file_path=os.path.join(path,i)
 		new_files=os.listdir(file_path)
 		for idx, j in enumerate(new_files):
-			if(idx==400):
+			if(idx==4000):
 				break
 			img=cv2.imread(os.path.join(file_path,j),0)
 			img= deskew(img)
@@ -36,8 +36,8 @@ def create_data():
 	input_data = input_data.astype('float32')
 	input_data /= 255
 	print(label.shape,input_data.shape)
-	np.save('../inputs.npy',input_data)
-	np.save('../label.npy',label)
+	np.save('..\\inputs_4000.npy',input_data)
+	np.save('..\\label_4000.npy',label)
 
 
 
