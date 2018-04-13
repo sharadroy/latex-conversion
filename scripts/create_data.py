@@ -12,7 +12,7 @@ def create_data():
 	files=os.listdir(path)
 	print(files)
 	cnt=0
-	length=160000
+	length=332219
 	label=np.zeros((length,))
 	input_data=np.zeros((length,45,45))
 	data_values=['-', '1','2','+','X', '(',')','=','3','A','N','y','sqrt','4','0','b','z','d','l','sin','5','C','9','6','8','7',
@@ -22,8 +22,8 @@ def create_data():
 		file_path=os.path.join(path,i)
 		new_files=os.listdir(file_path)
 		for idx, j in enumerate(new_files):
-			if(idx==4000):
-				break
+			# if(idx==2332):
+			# 	break
 			img=cv2.imread(os.path.join(file_path,j),0)
 			img= deskew(img)
 			label[count]=label_idx

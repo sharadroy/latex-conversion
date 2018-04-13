@@ -32,7 +32,7 @@ def cnn_model():
 	model.add(Dense(128, activation='relu'))
 	model.add(Dense(80, activation='relu'))
 	model.add(Dense(num_classes, activation='softmax'))
-	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy',''])
+	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 	return model
 
@@ -41,9 +41,9 @@ model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10, batch_s
 scores = model.evaluate(X_test, y_test, verbose=0)
 print(scores)
 model_json = model.to_json()
-with open("../model.json", "w") as json_file:
+with open("..\\model_4000.json", "w") as json_file:
     json_file.write(model_json)
 # serialize weights to HDF5
-model.save_weights("model.h5")
+model.save_weights("model_4000.h5")
 print("Saved model to disk")
 
