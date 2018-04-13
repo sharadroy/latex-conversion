@@ -26,6 +26,30 @@ def printTree(start):
 		print ('}')
 	printTree(start.next)
 
+def insert(prev,curr):
+    curr_top = y[curr.index]
+    curr_bot = y1[curr.index]
+    prev_top = y[prev.index]
+    prev_bot = y1[prev.index]
+    prev_avg = 0.5 * (y[prev.index] + y1[prev.index])
+    prnt=prev.parent
+    if prnt is None:
+        if curr_bot < prev_avg:
+            prev.sup=curr
+            curr.parent=prev
+            prev=curr
+        elif curr_top>prev_avg:
+            prev.sub=curr
+            curr.parent=prev
+            prev=curr
+        else:
+            prev.next=curr
+            curr.parent=prev.parent
+            prev=curr
+        return prev
+    else:
+        
+
 
 start=chr(index=0)
 prev=start
