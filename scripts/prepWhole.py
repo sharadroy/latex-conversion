@@ -57,13 +57,13 @@ def prepWhole(img):
     return skel, thresh, edges
 
 
-img = cv2.imread('d.jpg')
+img = cv2.imread('..\\e.jpg')
 out, thresh, edges = prepWhole(img)
 cv2.imshow('out', out)
-cv2.imwrite('skeleton.jpg', out)
+cv2.imwrite('..\\skeleton.jpg', out)
 cv2.imshow('thresh', thresh)
-cv2.imwrite('threshold.jpg', thresh)
+cv2.imwrite('..\\threshold.jpg', thresh)
 cv2.imshow('edges', edges)
-cv2.imwrite('edges.jpg', edges)
+cv2.imwrite('..\\edges.jpg', edges)
 cv2.waitKey()
 cv2.destroyAllWindows()

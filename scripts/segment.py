@@ -51,7 +51,7 @@ def contour(img, thresh):
 # def segment(img, contours):
 
 
-img = cv2.imread('..\\d.jpg', 0)
+img = cv2.imread('..\\e.jpg', 0)
 thresh = cv2.imread('..\\threshold.jpg', 0)
 x, y, x1, y1 = contour(img, thresh)
 f = open('boxes.pkl', 'wb')
