@@ -9,14 +9,14 @@ import skimage.filters as fl
 def prepWhole(img):
     # type: (np.ndarray) -> Tuple[np.ndarray,np.ndarray,np.ndarray]
     # cv2.imshow('C',img)
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    # img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     img = cv2.medianBlur(img, 5)
     cv2.imwrite('median.jpg',img)
     # cv2.imshow('G',img)
     # img = cv2.resize(img,(45,45),interpolation=cv2.INTER_CUBIC)
     # cv2.imshow('sz',img)
     adap = fl.threshold_minimum(img)
-    print(adap)
+    # print(adap)
     temp, img = cv2.threshold(img, adap, 255, cv2.THRESH_BINARY_INV)
 
     # block_size = 35
@@ -57,13 +57,13 @@ def prepWhole(img):
     return skel, thresh, edges
 
 
-img = cv2.imread('..\\e.jpg')
-out, thresh, edges = prepWhole(img)
-cv2.imshow('out', out)
-cv2.imwrite('..\\skeleton.jpg', out)
-cv2.imshow('thresh', thresh)
-cv2.imwrite('..\\threshold.jpg', thresh)
-cv2.imshow('edges', edges)
-cv2.imwrite('..\\edges.jpg', edges)
-cv2.waitKey()
-cv2.destroyAllWindows()
+# img = cv2.imread('..\\e.jpg')
+# out, thresh, edges = prepWhole(img)
+# cv2.imshow('out', out)
+# cv2.imwrite('..\\skeleton.jpg', out)
+# cv2.imshow('thresh', thresh)
+# cv2.imwrite('..\\threshold.jpg', thresh)
+# cv2.imshow('edges', edges)
+# cv2.imwrite('..\\edges.jpg', edges)
+# cv2.waitKey()
+# cv2.destroyAllWindows()

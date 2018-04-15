@@ -11,7 +11,7 @@ class chr(object):
 
 f=open('boxes.pkl','rb')
 x,y,x1,y1=pickle.load(f)
-labels=['(','2','3','+','int','5','x','2','-','9','theta',')']
+labels=['(','2','3','+','\\int','5','x','2','-','9','\\theta',')']
 def printTree(start):
 	if start is None:
 		return
@@ -90,13 +90,13 @@ def insert(prev,curr):
 
 
 
-start=chr(index=0,label=labels[0])
-prev=start
-for i in range(1,len(x)):
-    curr=chr(index=i,label=labels[i])
-    prev=insert(prev,curr)
-
-printTree(start)
+# start=chr(index=0,label=labels[0])
+# prev=start
+# for i in range(1,len(x)):
+#     curr=chr(index=i,label=labels[i])
+#     prev=insert(prev,curr)
+#
+# printTree(start)
 # for i in range(1,len(x)):
 #     prnt=prev.parent
 #     prev_avg=0.5*(y[prev.index]+y1[prev.index])

@@ -42,7 +42,7 @@ def contour(img, thresh):
     for i in range(0,len(x)):
         cv2.rectangle(img, (x[i], y[i]), (x1[i], y1[i]), (0, 255, 0), 3)
     cv2.imwrite('boxes.jpg', img)
-    cv2.imshow('boxes', img)
+    # cv2.imshow('boxes', img)
     cv2.waitKey()
     cv2.destroyAllWindows()
     return x, y, x1, y1
@@ -51,11 +51,11 @@ def contour(img, thresh):
 # def segment(img, contours):
 
 
-img = cv2.imread('..\\e.jpg', 0)
-thresh = cv2.imread('..\\threshold.jpg', 0)
-x, y, x1, y1 = contour(img, thresh)
-f = open('boxes.pkl', 'wb')
-pickle.dump([x, y, x1, y1], f)
-f.close()
-# cv2.waitKey()
-# cv2.destroyAllWindows()
+# img = cv2.imread('..\\e.jpg', 0)
+# thresh = cv2.imread('..\\threshold.jpg', 0)
+# x, y, x1, y1 = contour(img, thresh)
+# f = open('boxes.pkl', 'wb')
+# pickle.dump([x, y, x1, y1], f)
+# f.close()
+# # cv2.waitKey()
+# # cv2.destroyAllWindows()
