@@ -9,13 +9,13 @@ class chr(object):
         self.index=index
         self.label=label
 
-f=open('boxes.pkl','rb')
-x,y,x1,y1=pickle.load(f)
-labels=['(','2','3','+','\\int','5','x','2','-','9','\\theta',')']
+# f=open('boxes.pkl','rb')
+# x,y,x1,y1=pickle.load(f)
+# labels=['(','2','3','+','\\int','5','x','2','-','9','\\theta',')']
 def printTree(start):
 	if start is None:
 		return
-	print (start.label,end='')
+	print (start.label,end=' ')
 	if start.sub is not None:
 		print ('_{',end='')
 		printTree(start.sub)
@@ -26,7 +26,7 @@ def printTree(start):
 		print ('}',end='')
 	printTree(start.next)
 
-def insert(prev,curr):
+def insert(prev,curr,x,x1,y,y1):
     curr_top = y[curr.index]
     curr_bot = y1[curr.index]
     prev_top = y[prev.index]
@@ -64,8 +64,8 @@ def insert(prev,curr):
                     curr.parent = prev.parent
                     prev = curr
                 else:
-                    return insert(prnt, curr)
-            else: return insert(prnt,curr)
+                    return insert(prnt, curr,x,x1,y,y1)
+            else: return insert(prnt,curr,x,x1,y,y1)
         elif prev_top>prnt_avg:
             if curr_top>prnt_avg:
                 if curr_bot<prev_avg:
@@ -81,8 +81,8 @@ def insert(prev,curr):
                     curr.parent = prev.parent
                     prev = curr
                 else:
-                    return insert(prnt, curr)
-            else : return insert(prnt,curr)
+                    return insert(prnt, curr,x,x1,y,y1)
+            else : return insert(prnt,curr,x,x1,y,y1)
         else:
             print('case 3 error')
         return prev

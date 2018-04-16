@@ -2,21 +2,37 @@ import cv2
 import numpy as np
 from skimage.morphology import skeletonize
 import skimage.filters as fl
-
+from skimage.morphology import skeletonize
+from skimage.filters import gaussian, threshold_minimum
+from skimage.morphology import square, erosion, thin
+from skimage.data import binary_blobs
 # from skimage.morphology import skeletonize
 
 # input=whole image; output=skeletonization,threshold,edges
+
+def thinning(img):
+    # img=1*(img>0)
+    # gaussian_blur = gaussian(img, sigma=1)
+    # thresh_sauvola = threshold_minimum(gaussian_blur)
+    # binary_img = gaussian_blur < thresh_sauvola
+    thinned_img = skeletonize(img)
+    thinned_img = 1*(thinned_img == 0)
+    return thinned_img
+    # thinned_img = 255*(thinned_img == 0)
+
+
 def prepWhole(img):
     # type: (np.ndarray) -> Tuple[np.ndarray,np.ndarray,np.ndarray]
     # cv2.imshow('C',img)
-    # img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     img = cv2.medianBlur(img, 5)
     cv2.imwrite('median.jpg',img)
     # cv2.imshow('G',img)
     # img = cv2.resize(img,(45,45),interpolation=cv2.INTER_CUBIC)
     # cv2.imshow('sz',img)
     adap = fl.threshold_minimum(img)
-    # print(adap)
+    print(adap)
+    # if adap<127: adap=130
     temp, img = cv2.threshold(img, adap, 255, cv2.THRESH_BINARY_INV)
 
     # block_size = 35

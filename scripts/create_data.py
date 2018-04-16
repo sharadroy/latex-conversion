@@ -25,7 +25,9 @@ def create_data():
 			# if(idx==2332):
 			# 	break
 			img=cv2.imread(os.path.join(file_path,j),0)
-			img= deskew(img)
+			# img= deskew(img)
+			img= 1*(img>127)
+			# img=img.astype('uint8')
 			label[count]=label_idx
 			input_data[count]=img
 			print(input_data.shape,img.shape)
@@ -33,11 +35,11 @@ def create_data():
 			print(count,i,j)
 			
 	input_data = input_data.reshape(input_data.shape[0], 1, 45,45)
-	input_data = input_data.astype('float32')
-	input_data /= 255
+	input_data = input_data.astype('uint8')
+	# input_data /= 255
 	print(label.shape,input_data.shape)
-	np.save('..\\inputs_4000.npy',input_data)
-	np.save('..\\label_4000.npy',label)
+	np.save('..\\inputs_4000_binary1.npy',input_data)
+	np.save('..\\label_4000_binary1.npy',label)
 
 
 
