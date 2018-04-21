@@ -7,7 +7,7 @@ from scripts import tree
 from scripts import pred
 
 if len(sys.argv)<2:
-    file='w.jpg'
+    file='n.jpg'
 else:
     file=sys.argv[1]
 img=cv2.imread('..\\'+file)

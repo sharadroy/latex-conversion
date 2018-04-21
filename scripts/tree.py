@@ -51,7 +51,7 @@ def insert(prev,curr,x,x1,y,y1):
         prnt_avg = 0.5 * (y[prnt.index] + y1[prnt.index])
         if prev_bot<prnt_avg:
             if curr_bot<prnt_avg:
-                if curr_bot<prev_avg and 1*curr_bot>prev_top:
+                if curr_bot<prev_avg and 1.05*curr_bot>prev_top:
                     prev.sup = curr
                     curr.parent = prev
                     prev = curr
@@ -72,7 +72,7 @@ def insert(prev,curr,x,x1,y,y1):
                     prev.sup = curr
                     curr.parent = prev
                     prev = curr
-                elif curr_top>prev_avg and curr_top<prev_bot*1:
+                elif curr_top>prev_avg and curr_top<prev_bot*1.05:
                     prev.sub = curr
                     curr.parent = prev
                     prev = curr

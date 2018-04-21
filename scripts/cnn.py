@@ -37,13 +37,13 @@ def cnn_model():
 	return model
 
 model=cnn_model()
-model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10, batch_size=200)
-scores = model.evaluate(X_test, y_test, verbose=0)
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=30, batch_size=200,verbose=2)
+scores = model.evaluate(X_test, y_test, verbose=1)
 print(scores)
-model_json = model.to_json()
-with open("..\\model_4000_binary1.json", "w") as json_file:
-    json_file.write(model_json)
-# serialize weights to HDF5
-model.save_weights("model_4000_binary1.h5")
-print("Saved model to disk")
+# model_json = model.to_json()
+# with open("..\\model_4000_binary1.json", "w") as json_file:
+#     json_file.write(model_json)
+# # serialize weights to HDF5
+# model.save_weights("model_4000_binary1.h5")
+# print("Saved model to disk")
 
